@@ -1,4 +1,9 @@
 /* ===========================
+   GOOGLE FONTS
+   =========================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ===========================
    BASE RESET & VARIABLES
    =========================== */
 *, *::before, *::after {
@@ -8,19 +13,21 @@
 }
 
 :root {
-  --color-brand: #2e7d32;
-  --color-brand-light: #43a047;
-  --color-text: #1a1a1a;
-  --color-text-muted: #666;
-  --color-border: #e0e0e0;
-  --color-bg: #fff;
-  --color-bg-alt: #f5f5f3;
-  --color-link: #1a1a1a;
-  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --header-height: 56px;
+  --color-accent: #b5813a;
+  --color-accent-dark: #8f6228;
+  --color-text: #1a1814;
+  --color-text-muted: #7a7268;
+  --color-border: #e2ddd5;
+  --color-bg: #faf9f7;
+  --color-bg-alt: #f2efe9;
+  --color-hero-bg: #0f0e0c;
+  --color-hero-text: #faf9f7;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --header-height: 60px;
   --header-secondary-height: 36px;
   --max-width: 1280px;
-  --section-pad: 80px;
+  --section-pad: 96px;
 }
 
 html {
@@ -33,6 +40,7 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -61,8 +69,8 @@ ul, ol {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #fff;
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-hero-bg);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .header-inner {
@@ -81,10 +89,11 @@ ul, ol {
 }
 
 .logo-text {
-  font-size: 18px;
+  font-family: var(--font-serif);
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--color-text);
+  letter-spacing: 0.01em;
+  color: #fff;
 }
 
 .main-nav {
@@ -231,8 +240,9 @@ ul, ol {
    HERO
    =========================== */
 .hero {
-  background: var(--color-bg-alt);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-hero-bg);
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-inner {
@@ -240,61 +250,79 @@ ul, ol {
   align-items: stretch;
   max-width: var(--max-width);
   margin: 0 auto;
-  min-height: 340px;
+  min-height: 480px;
 }
 
 .hero-text {
   flex: 1;
-  padding: 60px 48px 60px 24px;
+  padding: 72px 56px 72px 40px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-brand);
-  margin-bottom: 12px;
+  color: var(--color-accent);
+  margin-bottom: 20px;
 }
 
 .hero-name {
-  font-size: clamp(40px, 6vw, 72px);
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 7vw, 96px);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  color: var(--color-text);
-  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  line-height: 1.0;
+  color: var(--color-hero-text);
+  margin-bottom: 24px;
 }
 
 .hero-subtitle {
-  font-size: 14px;
-  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(250, 249, 247, 0.45);
 }
 
 .hero-image {
-  width: 340px;
+  width: 420px;
   flex-shrink: 0;
   overflow: hidden;
+  position: relative;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--color-hero-bg) 0%, transparent 30%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.85;
 }
 
 .hero-image-placeholder {
   width: 100%;
   height: 100%;
-  min-height: 340px;
-  background: #d0d0c8;
+  min-height: 480px;
+  background: #222;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
+  color: #555;
   font-size: 13px;
 }
 
@@ -305,15 +333,15 @@ ul, ol {
   position: sticky;
   top: var(--header-height);
   z-index: 90;
-  background: #fff;
-  border-bottom: 2px solid var(--color-brand);
+  background: var(--color-hero-bg);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .inpage-nav ul {
   display: flex;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 40px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -324,20 +352,22 @@ ul, ol {
 
 .inpage-nav ul li a {
   display: block;
-  padding: 14px 18px;
-  font-size: 13px;
+  padding: 16px 18px;
+  font-size: 11px;
   font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   white-space: nowrap;
-  color: var(--color-text-muted);
+  color: rgba(250, 249, 247, 0.45);
   border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  transition: color 0.15s, border-color 0.15s;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .inpage-nav ul li a:hover,
 .inpage-nav ul li a.active {
-  color: var(--color-brand);
-  border-bottom-color: var(--color-brand);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -359,14 +389,28 @@ ul, ol {
 }
 
 .section-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-brand);
-  margin-bottom: 40px;
-  padding-bottom: 14px;
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: 48px;
+  padding-bottom: 24px;
   border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+  margin-bottom: 6px;
 }
 
 /* ===========================
@@ -425,14 +469,14 @@ ul, ol {
 }
 
 .series-card {
-  background: #fff;
+  background: var(--color-bg);
   border: 1px solid var(--color-border);
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .series-card:hover {
-  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
 }
 
 .series-card-link {
@@ -462,8 +506,9 @@ ul, ol {
 }
 
 .series-card-info h3 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
   margin-bottom: 4px;
   color: var(--color-text);
 }
@@ -482,10 +527,11 @@ ul, ol {
 }
 
 .series-more {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--color-brand);
-  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* ===========================
@@ -583,13 +629,14 @@ ul, ol {
 }
 
 .list-content h3 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 400;
   margin-bottom: 6px;
 }
 
 .list-content h3 a:hover {
-  color: var(--color-brand);
+  color: var(--color-accent);
 }
 
 .list-content p {
@@ -700,7 +747,7 @@ ul, ol {
 
 .award-year {
   font-size: 12px;
-  color: var(--color-brand);
+  color: var(--color-accent);
   font-weight: 600;
   margin-bottom: 4px;
 }
@@ -715,9 +762,10 @@ ul, ol {
    FOOTER
    =========================== */
 .site-footer {
-  background: #111;
+  background: var(--color-hero-bg);
   color: #fff;
-  padding: 60px 0 0;
+  padding: 72px 0 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 .footer-inner {
@@ -731,6 +779,8 @@ ul, ol {
 }
 
 .footer-brand .logo-text {
+  font-family: var(--font-serif);
+  font-size: 22px;
   color: #fff;
   display: block;
   margin-bottom: 8px;
@@ -867,14 +917,14 @@ ul, ol {
   }
 
   .hero-text {
-    padding: 32px 16px 28px;
+    padding: 40px 16px 36px;
   }
 
   .hero-label {
     margin-bottom: 8px;
   }
 
-  /* In-page nav — larger touch targets */
+  /* In-page nav */
   .inpage-nav ul {
     padding: 0 16px;
   }
