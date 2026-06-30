@@ -245,19 +245,10 @@ ul, ol {
 
 .hero-text {
   flex: 1;
-  padding: 60px 48px 60px 24px;
+  padding: 60px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.hero-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-brand);
-  margin-bottom: 12px;
 }
 
 .hero-name {
@@ -272,30 +263,6 @@ ul, ol {
 .hero-subtitle {
   font-size: 14px;
   color: var(--color-text-muted);
-}
-
-.hero-image {
-  width: 340px;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-image-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 340px;
-  background: #d0d0c8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 13px;
 }
 
 /* ===========================
@@ -889,21 +856,8 @@ ul, ol {
   }
 
   /* Hero — image on top, text below */
-  .hero-inner {
-    flex-direction: column-reverse;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: 280px;
-  }
-
   .hero-text {
-    padding: 32px 16px 28px;
-  }
-
-  .hero-label {
-    margin-bottom: 8px;
+    padding: 32px 16px;
   }
 
   /* In-page nav — larger touch targets */
@@ -988,10 +942,6 @@ ul, ol {
 @media (max-width: 480px) {
   :root {
     --section-pad: 40px;
-  }
-
-  .hero-image {
-    height: 240px;
   }
 
   .hero-name {
