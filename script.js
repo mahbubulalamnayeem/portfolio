@@ -37,6 +37,42 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(section => observer.observe(section));
 
+// Lightbox for press, exhibitions and awards images
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
+lightbox.setAttribute('role', 'dialog');
+lightbox.setAttribute('aria-modal', 'true');
+lightbox.setAttribute('aria-label', 'Image viewer');
+lightbox.innerHTML = `
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img class="lightbox-img" src="" alt="" />
+`;
+document.body.appendChild(lightbox);
+
+const lightboxImg = lightbox.querySelector('.lightbox-img');
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  lightbox.querySelector('.lightbox-close').focus();
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.list-img img, .award-img img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => openLightbox(img.src, img.alt));
+});
+
+lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
 // Image fallback — show a grey box when placeholder images are missing
 document.querySelectorAll('img').forEach(img => {
   img.addEventListener('error', function () {
