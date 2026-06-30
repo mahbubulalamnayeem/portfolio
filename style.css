@@ -537,10 +537,6 @@ ul, ol {
   align-items: start;
 }
 
-.list-item:first-child {
-  border-top: 1px solid var(--color-border);
-}
-
 .list-date {
   font-size: 12px;
   font-weight: 600;
