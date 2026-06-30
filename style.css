@@ -752,56 +752,55 @@ ul, ol {
 .site-footer {
   background: #111;
   color: #fff;
-  padding: 60px 0 0;
 }
 
 .footer-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px 60px;
-  display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  gap: 48px;
-  align-items: start;
-}
-
-.footer-brand .logo-text {
-  color: #fff;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.footer-tagline {
-  font-size: 13px;
-  color: #888;
-}
-
-.footer-nav ul {
+  padding: 20px 24px;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  gap: 32px;
 }
 
-.footer-nav ul li a {
+.footer-name {
   font-size: 13px;
-  color: #aaa;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+}
+
+.footer-nav a {
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   transition: color 0.15s;
 }
 
-.footer-nav ul li a:hover {
+.footer-nav a:hover {
   color: #fff;
   text-decoration: none;
 }
 
 .footer-social {
   display: flex;
-  flex-direction: column;
   gap: 14px;
+  align-items: center;
 }
 
 .footer-social a {
-  color: #888;
+  color: #666;
   transition: color 0.15s;
+  display: flex;
 }
 
 .footer-social a:hover {
@@ -809,15 +808,15 @@ ul, ol {
 }
 
 .footer-bottom {
-  border-top: 1px solid #333;
+  border-top: 1px solid #222;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 12px 24px;
 }
 
 .footer-bottom p {
-  font-size: 12px;
-  color: #555;
+  font-size: 11px;
+  color: #444;
 }
 
 /* ===========================
@@ -863,16 +862,8 @@ ul, ol {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .footer-inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-
-  .footer-social {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
-    grid-column: 1 / -1;
+  .footer-nav {
+    gap: 14px;
   }
 }
 
@@ -975,19 +966,25 @@ ul, ol {
 
   /* Footer */
   .footer-inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 0 16px 40px;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .footer-nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px 16px;
   }
 
   .footer-social {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
+    margin-left: auto;
   }
 
   .footer-bottom {
-    padding: 16px 16px;
+    padding: 12px 16px;
   }
 }
 
