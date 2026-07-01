@@ -103,8 +103,7 @@
 
 .series-photo img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
   transition: opacity 0.3s;
 }
@@ -115,13 +114,6 @@
 
 .series-photo--full {
   width: 100%;
-  max-height: 80vh;
-}
-
-.series-photo--full img {
-  max-height: 80vh;
-  object-fit: contain;
-  background: #0f0e0c;
 }
 
 .series-photo-row {
@@ -129,13 +121,7 @@
 }
 
 .series-photo--half {
-  max-height: 80vh;
-}
-
-.series-photo--half img {
-  max-height: 80vh;
-  object-fit: contain;
-  background: #0f0e0c;
+  width: 100%;
 }
 
 /* ===========================
@@ -154,11 +140,4 @@
     gap: 0;
   }
 
-  .series-photo--full {
-    max-height: 60vh;
-  }
-
-  .series-photo--full img {
-    max-height: 60vh;
-  }
 }
